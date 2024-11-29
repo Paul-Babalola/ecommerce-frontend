@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2d1ff545.css",
+    "main.js": "/static/js/main.fd04df14.js",
+    "static/media/brown-shoes-isolated-white-background.jpg": "/static/media/brown-shoes-isolated-white-background.b09a3e3b6c5142755324.jpg",
+    "static/media/pair-trainers.jpg": "/static/media/pair-trainers.74e7078cc131147a38ec.jpg",
+    "static/media/leather-boots.jpg": "/static/media/leather-boots.e1f671b38bdf91d99216.jpg",
+    "static/media/imani-bahati-LxVxPA1LOVM-unsplash.png": "/static/media/imani-bahati-LxVxPA1LOVM-unsplash.6d6bae1fa3a32041db71.png",
+    "static/media/big-shoe1.png": "/static/media/big-shoe1.245a575d35e402042ac2.png",
+    "static/media/shoe8.svg": "/static/media/shoe8.5749507d39f88bc6f097d3e680fde03c.svg",
+    "static/media/big-shoe3.png": "/static/media/big-shoe3.1d723d845874f2c6f410.png",
+    "static/media/white-platform-shoes-lie-bed.png": "/static/media/white-platform-shoes-lie-bed.01521fcbc0816732f5ad.png",
+    "static/media/fashion-shoes-sneakers.png": "/static/media/fashion-shoes-sneakers.b8e477e25cbff95fe17f.png",
+    "static/media/shoe4.svg": "/static/media/shoe4.587890eba7a53eb41a74986541552b28.svg",
+    "index.html": "/index.html",
+    "main.2d1ff545.css.map": "/static/css/main.2d1ff545.css.map",
+    "main.fd04df14.js.map": "/static/js/main.fd04df14.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d1ff545.css",
+    "static/js/main.fd04df14.js"
+  ]
+}
