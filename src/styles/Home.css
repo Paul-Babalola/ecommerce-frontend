@@ -349,7 +349,7 @@ height: 12rem;
   }
   /* Footer Section */
   
-  @media (min-width: 1200px) {
+  /* @media (min-width: 1200px) {
     .hero-text h1 {
         font-size: 4rem;
     }
@@ -362,7 +362,7 @@ height: 12rem;
 }
 
 /* Large screens (992px to 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
+/* @media (min-width: 992px) and (max-width: 1199px) {
     .hero-text {
         padding: 80px;
     }
@@ -385,7 +385,7 @@ height: 12rem;
     .cta {
         padding: 4rem 10rem;
     }
-}
+} */ 
 
 /* Tablets (768px to 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -439,27 +439,59 @@ height: 12rem;
 
 /* Small screens (576px to 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
-    .hero-text {
-        padding: 50px;
+  .hero{
+    width: 80%;
+  }
+  .hero-text{
+    background-size: auto 40%, contain;
+  }
+    .hero-content {
+        flex-direction: column;
+        padding: 20px;
     }
     .hero-text h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     .hero-text p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     .collectionsbox,
     .collectionsbox1 {
-        padding: 2rem;
-        text-align: center;
+        width: 100%;
+        margin: 1rem 0;
     }
     .products {
-        width: 100%;
         flex-direction: column;
+        align-items: center;
+
     }
     .products img {
-        width: 90%;
+        width: 200px;
         height: auto;
+    }
+    .cta {
+        padding: 3rem 5rem;
+    }
+    .Comments{
+      width: 90%;
+    }
+
+    .testimonials{
+      margin-left: 0rem;
+    }
+
+    .collections{
+      width: 90%;
+    }
+    .collectionsbox{
+      margin-right: 5%;
+      background-size: 45%;
+    }
+    .collectionsbox h2{
+      font-size: 22px;
+    }
+    .collectionsbox1{
+      background-size: 65%;
     }
 }
 
