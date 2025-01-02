@@ -191,4 +191,17 @@ size: 60%;
      }
   
   }
+
+  @media (max-width: 575px) {
+  
+    .newsletter-form input {
+      width: 100px;
+    }
+
+    .newsletter{
+      width: 80%;
+      size: 60%;
+          }
+  
+  }
   

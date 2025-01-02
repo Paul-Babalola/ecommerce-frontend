@@ -19,7 +19,7 @@ body {
   
   /* Hero Section */
   .hero {
-    background-color: rgb(249,249,249);
+    /* background-color: rgb(249,249,249); */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -497,38 +497,60 @@ height: 12rem;
 
 /* Extra small screens (up to 575px) */
 @media (max-width: 575px) {
-    .hero-text {
-        padding: 30px;
-        text-align: center;
+  .hero{
+    width: 90%;
+  }
+  .hero-text{
+    background-size: auto 37%, contain;
+  }
+    .hero-content {
+        flex-direction: column;
+        padding: 20px;
     }
     .hero-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .hero-text p {
-        font-size: 0.8rem;
-    }
-    .collections {
-        flex-direction: column;
+        font-size: 15px;
     }
     .collectionsbox,
     .collectionsbox1 {
-        padding: 1.5rem;
-        width: 90%;
-        margin: 1rem auto;
-    }
-    .cta {
-        padding: 2rem;
+        width: 100%;
+        margin: 0rem 0;
     }
     .products {
-        width: 100%;
-        padding: 0;
+        flex-direction: column;
+        align-items: center;
+
     }
     .products img {
-        width: 100%;
+        width: 200px;
         height: auto;
     }
-    .products button {
-        width: 100%;
-        margin: 1rem 0;
+    .cta {
+        padding: 3rem 5rem;
+    }
+    .Comments{
+      width: 90%;
+    }
+
+    .testimonials{
+      margin-left: 0rem;
+    }
+
+    .collections{
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+    }
+    .collectionsbox{
+      margin-bottom: 5%;
+      background-size: 45%;
+    }
+    .collectionsbox h2{
+      font-size: 22px;
+    }
+    .collectionsbox1{
+      background-size: 65%;
     }
 }
