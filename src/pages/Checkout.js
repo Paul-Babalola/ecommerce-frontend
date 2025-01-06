@@ -42,7 +42,7 @@ const Checkout = ({ cartItems, calculateTotal, isAuthenticated, saveOrder }) => 
     saveOrder(orderDetails);
 
     alert(`Thank you for your purchase, ${formData.name}!`);
-    navigate("/order-confirmation");
+    navigate("/");
   };
 
   return (

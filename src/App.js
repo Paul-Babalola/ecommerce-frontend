@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navbar';
+import SignIn from './pages/SignIn';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductList from './pages/ProductList';
@@ -41,6 +42,7 @@ function App() {
             path="/products/:id"
             element={<ProductDetail addToCart={addToCart} />}
           />
+          <Route path="/signin" element={<SignIn />} />
           <Route
             path="/cart"
             element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />}
