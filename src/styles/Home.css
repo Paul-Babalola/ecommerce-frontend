@@ -234,6 +234,11 @@ color: white;
     padding: 4rem 29rem;
   }
   
+  .btn{
+    background-color: rgb(255, 70, 14);
+
+  }
+
   .cta h2 {
     font-size: 2.0rem;
     font-weight: bold;

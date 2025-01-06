@@ -12,8 +12,8 @@ import NotFound from './pages/NotFound'; // Add a NotFound component
 
 function App() {
   const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Demo Product 1', price: 20.0, quantity: 1 },
-    { id: 2, name: 'Demo Product 2', price: 15.0, quantity: 2 },
+    { id: 1, name: 'Product 1', price: 20.0, quantity: 1 },
+    { id: 2, name: 'Product 2', price: 15.0, quantity: 2 },
   ]);
 
   const addToCart = (product) => {

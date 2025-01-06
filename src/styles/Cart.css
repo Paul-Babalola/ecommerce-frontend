@@ -50,7 +50,7 @@
   
   /* Buttons */
   .btn-remove {
-    background-color: #ef4444;
+    background-color: #e91a1a;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
@@ -67,7 +67,7 @@
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background-color: rgb(255, 70, 14);
+    background-color: rgb(202, 41, 68);
     color: #fff;
     text-align: center;
     font-size: 1rem;
@@ -78,6 +78,7 @@
   
   .btn-checkout:hover {
     background-color: rgb(255, 70, 14);
+    transform: translateY(4px);
   }
   
   /* Total Section */
