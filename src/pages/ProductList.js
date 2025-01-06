@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import "../styles/ProductPage.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/ProductList.css"; // Optional: Add your custom styles
+import sneakers from "../assets/images/shoes.png";
+import ankle from "../assets/images/ab.png";
+import os from "../assets/images/os.png";
 
 const products = [
   {
@@ -9,7 +12,7 @@ const products = [
     description: "Stylish and comfortable sneakers for everyday wear.",
     price: 59.99,
     quantity: 20,
-    image: "/images/sneakers1.jpg",
+    image: sneakers,
   },
   {
     id: 2,
@@ -17,7 +20,7 @@ const products = [
     description: "Durable and trendy boots for all seasons.",
     price: 99.99,
     quantity: 10,
-    image: "/images/boots1.jpg",
+    image: ankle,
   },
   {
     id: 3,
@@ -25,67 +28,28 @@ const products = [
     description: "Elegant formal shoes for professional and special occasions.",
     price: 89.99,
     quantity: 15,
-    image: "/images/formal1.jpg",
+    image: os,
   },
 ];
 
-const ProductPage = ({ addToCart }) => {
-  const { id } = useParams();
-  const product = products.find((product) => product.id === parseInt(id));
-
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
-
-  if (!product) {
-    console.log("Product not found for ID:", id); // Debugging log
-    return <h1>Product not found!</h1>;
-  }
-
-  const handleAddToCart = () => {
-    addToCart({ ...product, selectedQuantity });
-    alert(`${product.name} added to the cart!`);
-  };
-
+const ProductList = () => {
   return (
-    <div className="product-page-container">
-      <div className="product-image">
-        <img src={product.image} alt={product.name} />
-      </div>
-      <div className="product-details">
-        <h1>{product.name}</h1>
-        <p>{product.description}</p>
-        <p>
-          <strong>Price:</strong> ${product.price.toFixed(2)}
-        </p>
-        <p>
-          <strong>Product ID:</strong> {product.id}
-        </p>
-        <p>
-          <strong>Available Quantity:</strong> {product.quantity}
-        </p>
-        <div className="quantity-selector">
-          <label htmlFor="quantity">Select Quantity:</label>
-          <input
-            type="number"
-            id="quantity"
-            value={selectedQuantity}
-            min="1"
-            max={product.quantity}
-            onChange={(e) => {
-              const value = Math.min(Math.max(Number(e.target.value), 1), product.quantity);
-              setSelectedQuantity(value);
-            }}
-          />
-        </div>
-        <button
-          className="add-to-cart-btn"
-          onClick={handleAddToCart}
-          disabled={selectedQuantity > product.quantity || selectedQuantity < 1}
-        >
-          Add to Cart
-        </button>
+    <div className="product-list-container">
+      <h1>Available Products</h1>
+      <div className="product-grid">
+        {products.map((product) => (
+          <div className="product-card" key={product.id}>
+            <img src={product.image} alt={product.name} className="product-image" />
+            <h2 className="product-name">{product.name}</h2>
+            <p className="product-price">${product.price.toFixed(2)}</p>
+            <Link to={`/product/${product.id}`} className="view-details-link">
+              View Details
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default ProductPage;
+export default ProductList;

@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Checkout = ({ cartItems, calculateTotal }) => {
+const Checkout = ({ cartItems, calculateTotal, isAuthenticated, saveOrder }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
-    city: '',
-    zip: '',
+    name: "",
+    email: "",
+    address: "",
+    city: "",
+    zip: "",
   });
+
+  const navigate = useNavigate();
+
+  // Redirect to sign-in page if user is not authenticated
+  useEffect(() => {
+    if (!isAuthenticated) {
+      alert("Please sign in or register to proceed with checkout.");
+      navigate("/signin");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,11 +28,21 @@ const Checkout = ({ cartItems, calculateTotal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!cartItems.length) {
-      alert('Your cart is empty. Add items before proceeding to checkout.');
+      alert("Your cart is empty. Add items before proceeding to checkout.");
       return;
     }
+
+    // Save order details
+    const orderDetails = {
+      cartItems,
+      total: calculateTotal(),
+      shippingInfo: formData,
+    };
+
+    saveOrder(orderDetails);
+
     alert(`Thank you for your purchase, ${formData.name}!`);
-    // Here you can integrate your payment/checkout API.
+    navigate("/order-confirmation");
   };
 
   return (
