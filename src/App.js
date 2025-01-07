@@ -39,7 +39,7 @@ function App() {
             element={<ProductList addToCart={addToCart} />}
           />
           <Route
-            path="/products/:id"
+            path="/product/:id"
             element={<ProductDetail addToCart={addToCart} />}
           />
           <Route path="/signin" element={<SignIn />} />
