@@ -11,3 +11,13 @@ body {
     text-decoration: none;
   }
   
+  .active-link {
+    font-weight: bold;
+    color: #ff4800ea !important; /* Primary color */
+    border-bottom: 2px solid #ff1100; /* Underline */
+  }
+  
+  .active-link:hover {
+    color: #ff4800ea !important; /* Darker hover color */
+  }
+  

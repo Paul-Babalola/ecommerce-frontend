@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, Container, Offcanvas, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navigation = ({ cartCount, cartItems, removeFromCart }) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const location = useLocation();
 
   const handleShowSidebar = () => setShowSidebar(true);
   const handleCloseSidebar = () => setShowSidebar(false);
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
@@ -17,18 +20,30 @@ const Navigation = ({ cartCount, cartItems, removeFromCart }) => {
             <img
               src="/logo-01.png" // Update with your logo path
               alt="ShoeStore Logo"
-              style={{ height: '40px' }}
+              style={{ height: "40px" }}
             />
           </Navbar.Brand>
 
           <Nav className="ml-auto d-flex align-items-center">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link
+              as={Link}
+              to="/"
+              className={isActive("/") ? "active-link" : ""}
+            >
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/categories">
+            <Nav.Link
+              as={Link}
+              to="/categories"
+              className={isActive("/categories") ? "active-link" : ""}
+            >
               Categories
             </Nav.Link>
-            <Nav.Link as={Link} to="/products">
+            <Nav.Link
+              as={Link}
+              to="/products"
+              className={isActive("/products") ? "active-link" : ""}
+            >
               Shop All
             </Nav.Link>
           </Nav>
@@ -37,25 +52,25 @@ const Navigation = ({ cartCount, cartItems, removeFromCart }) => {
             <Nav.Link
               onMouseEnter={handleShowSidebar}
               className="position-relative"
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             >
-              <FaShoppingCart style={{ fontSize: '1.5rem' }} />
+              <FaShoppingCart style={{ fontSize: "1.5rem" }} />
               {cartCount > 0 && (
                 <span
                   style={{
-                    position: 'absolute',
-                    top: '-5px',
-                    right: '0px',
-                    backgroundColor: '#e53e3e',
-                    color: 'white',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold',
-                    width: '20px',
-                    height: '20px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: '50%',
+                    position: "absolute",
+                    top: "-5px",
+                    right: "0px",
+                    backgroundColor: "#e53e3e",
+                    color: "white",
+                    fontSize: "0.8rem",
+                    fontWeight: "bold",
+                    width: "20px",
+                    height: "20px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "50%",
                   }}
                 >
                   {cartCount}
@@ -74,14 +89,14 @@ const Navigation = ({ cartCount, cartItems, removeFromCart }) => {
         <Offcanvas.Body>
           {cartItems && cartItems.length > 0 ? (
             <>
-              <ul style={{ listStyleType: 'none', padding: 0 }}>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
                 {cartItems.map((item, index) => (
                   <li
                     key={index}
                     style={{
-                      marginBottom: '1rem',
-                      borderBottom: '1px solid #ddd',
-                      paddingBottom: '1rem',
+                      marginBottom: "1rem",
+                      borderBottom: "1px solid #ddd",
+                      paddingBottom: "1rem",
                     }}
                   >
                     <div>{item.name}</div>

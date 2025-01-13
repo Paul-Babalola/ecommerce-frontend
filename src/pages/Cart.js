@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import '../styles/Cart.css'; // Import the external CSS file
+
 
 const Cart = ({ cartItems, removeFromCart }) => {
   const calculateTotal = () =>
@@ -31,12 +34,17 @@ const Cart = ({ cartItems, removeFromCart }) => {
                   <td>{item.quantity}</td>
                   <td>${(item.price * item.quantity).toFixed(2)}</td>
                   <td>
-                    <button
+                  <FontAwesomeIcon
+        icon={faTrash}
+        className="icon-remove"
+        onClick={() => removeFromCart(item.id)}
+      />
+                    {/* <button
                       className="btn-remove"
                       onClick={() => removeFromCart(item.id)}
                     >
                       Remove
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))}

@@ -23,10 +23,10 @@ const Footer = () => {
   
             <div className="links">
               <ul>
-                <li><a href="#">Shop All</a></li>
-                <li><a href="#">Makeup</a></li>
-                <li><a href="#">Skin Care</a></li>
-                <li><a href="#">Hair Care</a></li>
+                <li><a href="/products">Shop All</a></li>
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Boots</a></li>
+                <li><a href="#">Formal Shoes</a></li>
                 <li><a href="#">About</a></li>
               </ul>
             </div>
