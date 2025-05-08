@@ -23,6 +23,18 @@ function App() {
   });
 
 
+  const updateQuantity = (productId, newQuantity) => {
+    setCartItems((prevCart) =>
+      prevCart.map((item) =>
+        item.id === productId
+          ? { ...item, quantity: newQuantity > 0 ? newQuantity : 1 }
+          : item
+      )
+    );
+  };
+  
+
+
   const addToCart = (product) => {
     setCartItems((prevCartItems) => [...prevCartItems, product]);
   };
@@ -61,12 +73,17 @@ function App() {
             element={<ProductDetail addToCart={addToCart} />}
           />
               <Route path="/signin" element={<SignInAndRegister onLogin={setUser} />} />
-          <Route
-            path="/cart"
-            element={
-              <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
-            }
-          />
+              <Route
+  path="/cart"
+  element={
+    <Cart
+      cartItems={cartItems}
+      removeFromCart={removeFromCart}
+      updateQuantity={updateQuantity} // ✅ Pass the prop
+    />
+  }
+/>
+
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

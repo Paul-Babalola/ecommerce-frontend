@@ -49,3 +49,22 @@
     transform: translateY(4px);
   }
   
+  .controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  
+  .controls label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .controls select {
+    margin-top: 0.4rem;
+    padding: 0.3rem 0.5rem;
+  }
+  

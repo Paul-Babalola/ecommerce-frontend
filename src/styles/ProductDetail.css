@@ -1,76 +1,101 @@
-/* Product Detail Container */
 .product-detail-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Product Detail Card */
-  .product-detail-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  /* Product Image */
-  .product-detail-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  /* Product Name */
-  .product-detail-name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Product Description */
-  .product-detail-description {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 15px;
-  }
-  
-  /* Product Price */
-  .product-detail-price {
-    font-size: 1.3rem;
-    color: #161616;
-    margin-bottom: 10px;
-  }
-  
-  /* Quantity Available */
-  .product-detail-quantity {
-    font-size: 1.1rem;
-    color: #888;
-    margin-bottom: 15px;
-  }
-  
-  /* Buttons */
-  .add-to-cart-btn,
-  .back-to-products-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #ff4500;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 20px;
-  }
-  
-  .add-to-cart-btn:hover,
-  .back-to-products-btn:hover {
-    background-color: #bb3404;
-  }
-  
+  padding: 2rem;
+}
+
+.product-detail-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-section img.zoom-image {
+  width: 550px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 4rem;
+}
+
+.image-section img.zoom-image:hover {
+  transform: scale(1.1);
+}
+
+.info-section {
+  max-width: 500px;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #e63946;
+}
+
+.stock.in {
+  color: green;
+}
+
+.stock.out {
+  color: red;
+}
+
+.selector {
+  margin-top: 10px;
+}
+
+.selector select {
+  padding: 5px;
+  width: 100%;
+}
+
+.action-buttons {
+  margin-top: 15px;
+}
+
+.action-buttons button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.action-buttons .buy-now {
+  background-color: #e63946;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.reviews .review {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.related-products {
+  margin-top: 3rem;
+}
+
+.related-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.related-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 180px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.related-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}

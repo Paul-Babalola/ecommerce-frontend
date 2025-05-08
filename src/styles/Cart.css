@@ -75,9 +75,29 @@
   .btn-remove:hover {
     background-color: #dc2626;
   }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .quantity-btn {
+    padding: 4px 8px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .quantity-value {
+    min-width: 24px;
+    text-align: center;
+  }
+  
   
   .btn-checkout {
-    display: inline-block;
+    display: inline-flex;
+    margin-left: 11rem;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
     background-color: rgb(202, 41, 68);
@@ -87,6 +107,25 @@
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+  }
+
+  .btn-checkout1 {
+    display: inline-flex;
+    margin-right: 11rem;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: rgb(202, 41, 68);
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-checkout1:hover {
+    background-color: rgb(255, 70, 14);
+    transform: translateY(4px);
   }
   
   .btn-checkout:hover {
