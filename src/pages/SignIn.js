@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/SignIn.css";
 
-const SignInAndRegister = ({ setAuthenticated }) => {
-  const [isRegistering, setIsRegistering] = useState(false); // Toggle between Sign In and Register
+const SignInAndRegister = ({ onLogin }) => {
+  const [isRegistering, setIsRegistering] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // For registration
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    // Mock authentication process
     if (email === "user@example.com" && password === "password") {
-      setAuthenticated(true);
+      const userData = { email };
+      localStorage.setItem("authUser", JSON.stringify(userData));
+      onLogin(userData);
       alert("Successfully signed in!");
 
-      // Redirect to the previous page or homepage
       const from = location.state?.from || "/";
       navigate(from);
     } else {
@@ -29,10 +29,9 @@ const SignInAndRegister = ({ setAuthenticated }) => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Mock registration process
     if (password === confirmPassword) {
       alert("Registration successful! You can now sign in.");
-      setIsRegistering(false); // Switch to Sign In after registration
+      setIsRegistering(false);
     } else {
       alert("Passwords do not match!");
     }
