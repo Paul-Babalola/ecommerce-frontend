@@ -47,6 +47,7 @@ const Home = () => {
     console.log("Cart updated:", cart);
   };
 
+  
   return (
     <div className="home-container">
       {/* Hero Section */}

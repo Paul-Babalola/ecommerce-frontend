@@ -1,0 +1,126 @@
+/* Checkout.css */
+
+/* General Container */
+.checkout-container {
+  padding: 2.5rem 1rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Checkout Title */
+.checkout-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+/* Checkout Grid for Order Summary and Form */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Order Summary Section */
+.checkout-summary {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-summary ul {
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Checkout Form Section */
+.checkout-form {
+  background: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.checkout-form input,
+.checkout-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+/* Promo Code Section */
+.promo-code-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.promo-code-group input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.promo-code-group button {
+  padding: 0 1rem;
+  background-color:  rgb(202, 41, 68);
+  color: white;
+  border: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+}
+
+.promo-code-group button:hover {
+  background-color: rgb(255, 70, 14);
+}
+
+/* Total Section */
+.total {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color:  rgb(255, 70, 14);
+  margin-top: 0.5rem;
+}
+
+.discount {
+  color: rgb(255, 70, 14);
+}
+
+/* Place Order Button */
+.place-order-btn {
+  width: 100%;
+  background-color:  rgb(202, 41, 68);
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.place-order-btn:hover {
+  background-color:rgb(255, 70, 14);
+}

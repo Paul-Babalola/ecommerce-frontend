@@ -10,6 +10,8 @@ import Categories from './pages/Categories';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import NotFound from './pages/NotFound';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   const [cartItems, setCartItems] = useState([
@@ -52,6 +54,7 @@ function App() {
 
   return (
     <div>
+        <ToastContainer />
       <Navigation
         cartCount={cartItems.length}
         cartItems={cartItems}

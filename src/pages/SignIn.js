@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";  // Import toast
+import "react-toastify/dist/ReactToastify.css";  // Import CSS for toast notifications
 import "../styles/SignIn.css";
 
 const SignInAndRegister = ({ onLogin }) => {
@@ -17,12 +19,12 @@ const SignInAndRegister = ({ onLogin }) => {
       const userData = { email };
       localStorage.setItem("authUser", JSON.stringify(userData));
       onLogin(userData);
-      alert("Successfully signed in!");
+      toast.success("Successfully signed in!"); // Success toast notification
 
       const from = location.state?.from || "/";
       navigate(from);
     } else {
-      alert("Invalid email or password!");
+      toast.error("Invalid email or password!"); // Error toast notification
     }
   };
 
@@ -30,10 +32,10 @@ const SignInAndRegister = ({ onLogin }) => {
     e.preventDefault();
 
     if (password === confirmPassword) {
-      alert("Registration successful! You can now sign in.");
+      toast.success("Registration successful! You can now sign in."); // Success toast notification
       setIsRegistering(false);
     } else {
-      alert("Passwords do not match!");
+      toast.error("Passwords do not match!"); // Error toast notification
     }
   };
 
