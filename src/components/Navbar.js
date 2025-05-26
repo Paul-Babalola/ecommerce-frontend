@@ -77,12 +77,14 @@ const Navigation = ({
                 style={{ fontSize: "1.5rem", marginRight: "0rem", cursor: "pointer" }}
                 onClick={handleShowSidebar}
               />
+              <br/>
+              <br/>
               {isAuthenticated ? (
-                <Button variant="outline-danger" size="sm" onClick={handleLogout}>
+                <Button variant="outline-danger" size="sm" onClick={handleLogout} style={{ color: "white" }}>
                   Logout
                 </Button>
               ) : (
-                <Button as={Link} to="/signin" variant="outline-dark" size="sm">
+                <Button as={Link} to="/signin" variant="outline-dark" size="sm"  style={{ color: "white" }}>
                   Login
                 </Button>
               )}
@@ -134,6 +136,7 @@ const Navigation = ({
                 variant="outline-dark"
                 size="sm"
                 className="ms-3"
+                style={{ color: "white" }}
               >
                 Login
               </Button>

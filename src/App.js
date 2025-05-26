@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navigation from './components/Navbar';
 import SignInAndRegister from './pages/SignIn';
 import Footer from './components/Footer';
@@ -12,7 +12,6 @@ import Checkout from './pages/Checkout';
 import NotFound from './pages/NotFound';
 import { ToastContainer } from 'react-toastify';
 
-
 function App() {
   const [cartItems, setCartItems] = useState([
     { id: 1, name: 'Product 1', price: 20.0, quantity: 1 },
@@ -20,10 +19,14 @@ function App() {
   ]);
 
   const [user, setUser] = useState(() => {
-    const stored = localStorage.getItem("authUser");
-    return stored ? JSON.parse(stored) : null;
+    try {
+      const stored = localStorage.getItem("authUser");
+      return stored ? JSON.parse(stored) : null;
+    } catch (err) {
+      localStorage.removeItem("authUser");
+      return null;
+    }
   });
-
 
   const updateQuantity = (productId, newQuantity) => {
     setCartItems((prevCart) =>
@@ -34,8 +37,6 @@ function App() {
       )
     );
   };
-  
-
 
   const addToCart = (product) => {
     setCartItems((prevCartItems) => [...prevCartItems, product]);
@@ -52,43 +53,46 @@ function App() {
     setUser(null);
   };
 
+  const isAuthenticated = !!user?.token;
+
   return (
     <div>
-        <ToastContainer />
+      <ToastContainer />
       <Navigation
         cartCount={cartItems.length}
         cartItems={cartItems}
         removeFromCart={removeFromCart}
-        isAuthenticated={!!user} // 👈 Check if user is logged in
+        isAuthenticated={isAuthenticated}
         onLogout={handleLogout}
-              />
+      />
 
       <div style={{ minHeight: '80vh' }}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route
-            path="/products"
-            element={<ProductList addToCart={addToCart} />}
-          />
-          <Route
-            path="/product/:id"
-            element={<ProductDetail addToCart={addToCart} />}
-          />
+          {!isAuthenticated ? (
+            <>
               <Route path="/signin" element={<SignInAndRegister onLogin={setUser} />} />
+              <Route path="*" element={<Navigate to="/signin" />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/products" element={<ProductList addToCart={addToCart} />} />
+              <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
               <Route
-  path="/cart"
-  element={
-    <Cart
-      cartItems={cartItems}
-      removeFromCart={removeFromCart}
-      updateQuantity={updateQuantity} // ✅ Pass the prop
-    />
-  }
-/>
-
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
+                path="/cart"
+                element={
+                  <Cart
+                    cartItems={cartItems}
+                    removeFromCart={removeFromCart}
+                    updateQuantity={updateQuantity}
+                  />
+                }
+              />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="*" element={<NotFound />} />
+            </>
+          )}
         </Routes>
       </div>
 
