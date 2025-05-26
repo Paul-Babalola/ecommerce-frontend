@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navigation from './components/Navbar';
 import SignInAndRegister from './pages/SignIn';
 import Footer from './components/Footer';
@@ -13,6 +13,10 @@ import NotFound from './pages/NotFound';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
+
+   const location = useLocation(); // 👈 Detect current route
+  const hideFooterRoutes = ['/signin'];
+
   const [cartItems, setCartItems] = useState([
     { id: 1, name: 'Product 1', price: 20.0, quantity: 1 },
     { id: 2, name: 'Product 2', price: 15.0, quantity: 2 },
@@ -96,7 +100,7 @@ function App() {
         </Routes>
       </div>
 
-      <Footer />
+  {!hideFooterRoutes.includes(location.pathname) && <Footer />}  
     </div>
   );
 }
