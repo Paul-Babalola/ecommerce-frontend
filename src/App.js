@@ -71,33 +71,27 @@ function App() {
       />
 
       <div style={{ minHeight: '80vh' }}>
-        <Routes>
-          {!isAuthenticated ? (
-            <>
-              <Route path="/signin" element={<SignInAndRegister onLogin={setUser} />} />
-              <Route path="*" element={<Navigate to="/signin" />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Home />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/products" element={<ProductList addToCart={addToCart} />} />
-              <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
-              <Route
-                path="/cart"
-                element={
-                  <Cart
-                    cartItems={cartItems}
-                    removeFromCart={removeFromCart}
-                    updateQuantity={updateQuantity}
-                  />
-                }
-              />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="*" element={<NotFound />} />
-            </>
-          )}
-        </Routes>
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/categories" element={<Categories />} />
+  <Route path="/products" element={<ProductList addToCart={addToCart} />} />
+  <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
+  <Route path="/cart" element={
+    <Cart
+      cartItems={cartItems}
+      removeFromCart={removeFromCart}
+      updateQuantity={updateQuantity}
+    />
+  } />
+  <Route path="/signin" element={<SignInAndRegister onLogin={setUser} />} />
+  
+  {/* ✅ Protect Checkout Route */}
+  <Route path="/checkout" element={
+    isAuthenticated ? <Checkout /> : <Navigate to="/signin" replace />
+  } />
+  
+  <Route path="*" element={<NotFound />} />
+</Routes>
       </div>
 
   {!hideFooterRoutes.includes(location.pathname) && <Footer />}  
