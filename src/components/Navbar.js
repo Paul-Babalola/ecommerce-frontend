@@ -8,6 +8,7 @@ import {
 } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import "../styles/Navbar.css"; 
 
 const Navigation = ({
   cartCount,
@@ -175,7 +176,7 @@ const Navigation = ({
                   </li>
                 ))}
               </ul>
-              <Link to="/cart" className="btn btn-primary w-100">
+              <Link to="/cart" className="cart w-100">
                 View Cart
               </Link>
             </>
