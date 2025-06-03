@@ -58,7 +58,7 @@ const Categories = () => {
             <h3>{category.name}</h3>
             <p>{category.description}</p>
             <Link to={`/categories/${category.id}`} className="view-category-btn">
-              View Products
+              View Category
             </Link>
           </div>
         ))}

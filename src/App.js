@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
+import CategoryProducts from './pages/CategoryProducts';
 import Categories from './pages/Categories';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
@@ -74,6 +75,7 @@ function App() {
 <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/categories" element={<Categories />} />
+  <Route path="/categories/:id" element={<CategoryProducts />} />
   <Route path="/products" element={<ProductList addToCart={addToCart} />} />
   <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
   <Route path="/cart" element={
